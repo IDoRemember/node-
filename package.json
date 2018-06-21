@@ -6,15 +6,21 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "@types/node": "^10.3.4",
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.15.5",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^5.0.0-alpha.2",
     "jade": "~1.11.0",
     "mongodb": "^3.1.0-beta4",
     "morgan": "~1.9.0",
     "path-exists": "^3.0.0",
     "request": "^2.83.0",
     "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "typescript": "^2.9.2"
   }
 }
