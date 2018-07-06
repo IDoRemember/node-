@@ -2,13 +2,23 @@ let gulp = require('gulp');
 let ts = require('gulp-typescript');
 let tsp = ts.createProject('tsconfig.json');
 let exec = require('child_process').exec;
-
+// let uglify = require('gulp-uglify');
 let child;
 
 const PATHS = {
     scripts: ['./routes/*.ts'],
     output: './build'
 }
+
+//压缩js文件
+// 在命令行使用gulp script启动此任务
+
+// gulp.task('script',function() {
+//     gulp.src('routes/*.js')
+//         .pipe(uglify())
+//         .pipe(gulp.dest(PATHS.output))
+// })
+
 //编译ts文件
 gulp.task('build-ts', ['restart'], function () {
     return gulp.src(PATHS.scripts)
