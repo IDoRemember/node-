@@ -34,6 +34,22 @@ export const getshop = async (page = 1,area = '全家') =>{
             sums
         })
     })
+    //细化处理
+    const fn = R.compose(
+        R.map((shop) =>{
+            const r1 = shop.perConsume.replace(/\s+/g,""); //去掉空格
+            const r2 = shop.sums.replace(/^[0-9]*$/g,"");
+            const index1 = r1.indexOf("￥");
+            const perConsume = r2.slice(index1+1,r2.length)
+            shop.perConsume = perConsume;
+            shop.sums = r2;
+
+            return shop
+        }),
+        R.filter(shop => shop.name && shop.adress && shop.qu && shop.perConsume && shop.sums) //判断数据是否齐全，字段不全则省去
+    )
+
+        shop = fn(shop);
         _shop = _.union(_shop,shop)
 
     if($('.next').attr('href')){
