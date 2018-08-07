@@ -15,7 +15,7 @@ export const gethouse = async ( page = 1,area = '') =>{
         uri:`https://hz.fang.anjuke.com/loupan/${area}/p${page}/`,
         transform: body => cheerio.load(body),
     }
-    console.log("正在爬"+options.uri);
+    console.log("我正在爬"+options.uri);
     const $ = await rp(options)
     let house = [];
     
